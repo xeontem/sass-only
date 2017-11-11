@@ -18,25 +18,41 @@ module.exports = {
     },
   module: {
     rules: [
+      //------------- html src --------------------
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          // options: {
+          //   attrs: [':data-src']
+          // }
+        }
+      },
+      //------------- sass --------------------
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-                use: [{
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }],
+                use: ["css-loader", "sass-loader"],
                 // use style-loader in development
                 fallback: "style-loader"
             })
       },
+      //------------- images in sass --------------------
       {
         test: /\.(png|jpg|gif)$/,
-        use: [{loader: 'file-loader'}]
+        use: [{
+          loader: 'file-loader',
+          options: {name: '[name].[ext]', outputPath: 'images/'},
+
+        }]
       },
+      //------------- fonts --------------------
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [{loader: 'file-loader'}]
+        use: [{
+          loader: 'file-loader',
+          options: {name: '[name].[ext]',  outputPath: 'fonts/'}
+        }]
       }
     ]
   },

@@ -4,10 +4,12 @@
 @import './footer.scss';
 @import './fonts.scss';
 
-body {
-  text-align: center;
-}
-
 .font-test {
   font-family: 'Indie Flower', cursive;
+}
+
+.preview {
+  display: block;
+  margin: auto;
+  width: 15%;
 }
