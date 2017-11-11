@@ -2,3 +2,12 @@
 @import './navigation.scss';
 @import './slider.scss';
 @import './footer.scss';
+@import './fonts.scss';
+
+body {
+  text-align: center;
+}
+
+.font-test {
+  font-family: 'Indie Flower', cursive;
+}
